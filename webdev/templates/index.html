@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashel Electric Company</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .logo {
+            height: 60px;
+        }
+        .banner {
+            background-image: url("{% static 'images/pic2.png' %}");
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .content div {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .content div:last-child {
+            margin-right: 0;
+        }
+        .content h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .content p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Services</a>
+            <a href="#">Career</a>
+            <a href="mashel_ai">mashel.ai</a>
+            <img src="{% static 'images/pic1.jpg' %}" alt="Mashel Electric Company Logo" class="logo">
+        </div>
+    </header>
+    <div class="banner">
+        <h1>Welcome to Mashel Electric Company!</h1>
+    </div>
+    <div class="container content">
+        <div>
+            <h2>About Us</h2>
+            <p>Mashel Electric Company is a leading provider of electrical services in the UP. We have been serving our customers for over 11 years with our experienced team of electricians and state-of-the-art equipment.</p>
+        </div>
+        <div>
+            <h2>Our Products</h2>
+            <p>We offer a wide range of electrical products like relays, LED drivers, SPD device and more. Our products are of the highest quality and are sourced from reputable manufacturers.</p>
+        </div>
+        <div>
+            <h2>Our Services</h2>
+            <p>We provide a variety of electrical services, including installation, maintenance, and repair. Our team of experienced electricians is dedicated to providing top-notch service to our customers.</p>
+        </div>
+    </div>
+</body>
+</html>
