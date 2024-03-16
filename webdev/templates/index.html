@@ -7,10 +7,12 @@
     {% load static %}
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease-in-out;
         }
+
         header {
             background-color: #333;
             color: #fff;
@@ -18,26 +20,35 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
+            transition: background-color 0.3s ease-in-out;
         }
+
         header a {
             color: #fff;
             text-decoration: none;
             margin-right: 20px;
+            transition: color 0.3s ease-in-out;
         }
+
         header a:hover {
             text-decoration: underline;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
+
         h1 {
             margin: 0;
         }
+
         .logo {
             height: 60px;
+            transition: transform 0.3s ease-in-out;
         }
+
         .banner {
             background-image: url("{% static 'images/pic2.png' %}");
             background-size: cover;
@@ -49,26 +60,56 @@
             color: #fff;
             font-size: 48px;
             font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
         }
+
         .content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: 50px;
+            transition: margin-top 0.3s ease-in-out;
         }
+
         .content div {
             flex: 1;
             margin-right: 20px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
+
         .content div:last-child {
             margin-right: 0;
         }
+
         .content h2 {
             margin-top: 0;
             margin-bottom: 10px;
+            transition: color 0.3s ease-in-out;
         }
+
         .content p {
             margin-bottom: 20px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Hover Effects */
+        header:hover,
+        header:hover a,
+        .logo:hover,
+        .banner:hover,
+        .content:hover div {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .content:hover h2,
+        .content:hover p {
+            color: #555;
+        }
+
+        .content:hover div:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -94,7 +135,7 @@
         </div>
         <div>
             <h2>Our Products</h2>
-            <p>We offer a wide range of electrical products like relays, LED drivers, SPD device and more. Our products are of the highest quality and are sourced from reputable manufacturers.</p>
+            <p>We offer a wide range of electrical products like relays, LED drivers, SPD devices, and more. Our products are of the highest quality and are sourced from reputable manufacturers.</p>
         </div>
         <div>
             <h2>Our Services</h2>

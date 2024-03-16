@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#send-btn').click(function() {
+                var message = $('#user-input').val();
+                $('#user-input').val('');
+                $.ajax({
+                    type: 'POST',
+                    url: '/get/',
+                    data: {'message': message},
+                    success: function(response) {
+                        $('#chat-box').append('<div class="message">You: ' + message + '</div>');
+                        $('#chat-box').append('<div class="message">AI: ' + response.response + '</div>');
+                        $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console.log('Error:', errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
