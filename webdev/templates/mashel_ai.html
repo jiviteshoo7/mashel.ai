@@ -65,12 +65,17 @@
 
 					$.ajax({
 						data: {
-							msg: rawText,	
+							msg: rawText,
+							csrfmiddlewaretoken: '{{ csrf_token }}'	
 						},
 						type: "POST",
 						url: "/get",
+						beforeSend: function(xhr, settings) {
+							xhr.setRequestHeader("X-CSRFToken", '{{ csrf_token }}'); // Set CSRF token in header
+                        },
 					}).done(function(data) {
-						var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + str_time + '</span></div></div>';
+						//console.log(response); // Log the response object to the console
+						var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data.response + '<span class="msg_time">' + str_time + '</span></div></div>';
 						$("#messageFormeight").append($.parseHTML(botHtml));
 					});
 					event.preventDefault();

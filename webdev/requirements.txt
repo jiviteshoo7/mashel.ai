@@ -1,1 +1,2 @@
 django
+openai==0.28
